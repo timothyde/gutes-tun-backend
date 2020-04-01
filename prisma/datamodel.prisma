@@ -1,0 +1,16 @@
+type User {
+  id: ID! @id
+  name: String!
+}
+
+type Request {
+  id: ID! @id
+  name: String!
+  email: String!
+  phone: String!
+  address: String!
+  title: String!
+  text: String!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
