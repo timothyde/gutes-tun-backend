@@ -50,6 +50,22 @@ const Query = {
     }
 
     return prisma.query.requests(opArgs, info);
+  },
+  async request(parent, args, { prisma }, info) {
+    const requests = await prisma.query.requests(
+      {
+        where: {
+          id: args.id
+        }
+      },
+      info
+    );
+
+    if (requests.length === 0) {
+      throw new Error("Post not found");
+    }
+
+    return requests[0];
   }
 };
 
